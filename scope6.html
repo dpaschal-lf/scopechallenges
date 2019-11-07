@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!--
+    lexical nested functions with same variable shadowing
+-->
+    <head>
+        <script>
+
+var a = 'window';
+
+console.log('1) ', a);
+function fun1(){
+    console.log('2) ', a);
+    var a = 'fun1'
+    console.log('3) ', a);
+    function fun2(){
+        console.log('4) ', a);
+        var a = 'fun2';
+        console.log('5) ', a);
+        fun3(a);
+    }    
+}
+
+function fun3(a){
+    console.log('6) ', a);
+}
+
+fun1();
+
+        
+        </script>
+    </head>
+</html>
+
+
+
+
+<!--
+
+1)  window          scope6.html:8 
+2)  undefined       scope6.html:10 
+3)  fun1            scope6.html:12 
+
+-->

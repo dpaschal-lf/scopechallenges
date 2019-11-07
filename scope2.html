@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<!--
+    repeat practice
+-->
+    <head>
+        <script>
+console.log('1) ' + a);
+var a = 'window';
+
+console.log('2) ' + a);
+function fun1(){
+    var a = 'fun1';
+    console.log('3) ' + a);
+}
+console.log('4) ' + a);
+fun1();
+console.log('5) ' + a);
+
+
+        
+        </script>
+    </head>
+</html>
+
+<!--
+    1) undefined    scope2.html:5
+    2) window       scope2.html:8 
+    4) window       scope2.html:13 
+    3) fun1         scope2.html:11
+    5) window       scope2.html:15 
+-->

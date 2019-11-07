@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<!--
+    nested lexical functions with non-shadowing local vars
+-->
+    <head>
+        <script>
+
+var a = 'window';
+var b = 'window2';
+var c = 'window3';
+
+console.log('1) ', a, b, c);
+function fun1(){
+    function fun2(){
+        console.log('2) ', a, b, c);
+        var c = 'fun2';
+        console.log('3) ', a, b, c);
+    }    
+    console.log('4) ', a, b, c);
+    var b = 'fun1';
+    console.log('5) ', a, b, c);
+    fun2();
+    console.log('6) ', a, b, c);
+}
+
+console.log('7) ', a, b, c);
+fun1();
+console.log('8) ', a, b, c);
+
+
+        
+        </script>
+    </head>
+</html>
+
+
+
+
+<!--
+1)  window window2 window3      scope7.html:10 
+7)  window window2 window3      scope7.html:24 
+4)  window undefined window3    scope7.html:17 
+5)  window fun1 window3         scope7.html:19 
+2)  window fun1 undefined       scope7.html:13 
+3)  window fun1 fun2            scope7.html:15 
+6)  window fun1 window3         scope7.html:21 
+8)  window window2 window3      scope7.html:26 
+
+-->

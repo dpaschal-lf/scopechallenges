@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        basic scope, 2 different vars, both local
+    -->
+    <head>
+        <script>
+
+var a = 'window';
+
+console.log('1) ' + a);
+function fun1(){
+    var b = 'fun1';
+    console.log('2) ' + b);
+    console.log('3) ' + a);
+}
+
+fun1();
+
+
+        
+        </script>
+    </head>
+</html>
+
+<!--
+    1) window       scope1.html:8 
+    2) fun1         scope1.html:11 
+    3) window       scope1.html:12 
+-->

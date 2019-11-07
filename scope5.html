@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<!--
+    non-lexical functions with non-shadowing variables local to each
+-->
+    <head>
+        <script>
+
+var a = 'window';
+var b = 'window2';
+var c = 'window3';
+
+console.log('1) ', a, b, c);
+function fun1(){
+    console.log('2) ', a, b, c);
+    var b = 'fun1';
+    console.log('3) ', a, b, c);
+    fun2();
+    console.log('4) ', a, b, c);
+}
+
+function fun2(){
+    console.log('5) ', a, b, c);
+    var c = 'fun2';
+    console.log('6) ', a, b, c);
+}
+console.log('7) ', a, b, c);
+fun1();
+console.log('8) ', a, b, c);
+
+        </script>
+    </head>
+</html>
+
+
+
+
+
+
+
+
+
+<!--
+
+1)  window window2 window3      scope5.html:10 
+7)  window window2 window3      scope5.html:24 
+2)  window undefined window3    scope5.html:12 
+3)  window fun1 window3         scope5.html:14 
+5)  window window2 undefined    scope5.html:20 
+6)  window window2 fun2         scope5.html:22 
+4)  window fun1 window3         scope5.html:16 
+8)  window window2 window3      scope5.html:26 
+
+-->

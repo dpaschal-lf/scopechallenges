@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        basic scope, same variable, using a parameter
+parameter: a local variable defined in the () of a function
+    -->
+    <head>
+        <script>
+
+var a = 'window';
+
+console.log('1) ' + a);
+function fun1(a){
+    console.log('2) ' + a);
+    a = 'fun1';
+    console.log('3) ' + a);
+}
+console.log('4) ' + a);
+fun1(a);
+console.log('5) ' + a);
+
+
+        
+        </script>
+    </head>
+</html>
+
+<!--
+1) window       scope1-2.html:8 
+4) window       scope1-2.html:14 
+2) window    scope1-2.html:10 
+3) fun1         scope1-2.html:12 
+5) window       scope1-2.html:16 
+-->

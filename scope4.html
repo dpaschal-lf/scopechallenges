@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!--
+    second called function, not lexical, with different local vars
+-->
+    <head>
+        <script>
+var b = 'error';
+var c = 'error';
+        </script>
+        <script>
+
+var a = 'window';
+
+console.log('1) ', a, b, c);
+function fun1(){
+    console.log('2) ', a, b, c);
+    var b = 'fun1';
+    console.log('3) ', a, b, c);
+    fun2();
+    console.log('4) ', a, b, c);
+}
+
+function fun2(){
+    console.log('5) ', a, b, c);
+    var c = 'fun2';
+    console.log('6) ', a, b, c);
+}
+console.log('7) ', a, b, c);
+fun1();
+console.log('8) ', a, b, c);
+
+
+        
+        </script>
+    </head>
+</html>
+
+<!--
+1)  window error error      scope4.html:12 
+7)  window error error      scope4.html:26 
+2)  window undefined error  scope4.html:14 
+3)  window fun1 error       scope4.html:16 
+5)  window error undefined  scope4.html:22 
+6)  window error fun2       scope4.html:24 
+4)  window fun1 error       scope4.html:18 
+8)  window error error      scope4.html:28 
+
+-->

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        basic scope, different variable, non-local goes to lexical a, using parameter
+lexical scope: the chain of scope from your current location to the window
+    -->
+    <head>
+        <script>
+
+var a = 'window';
+
+console.log('1) ' + a);
+function fun1(b){
+    console.log('2) ', a, b);
+    b = 'fun1';
+    console.log('3) ', a, b);
+}
+console.log('4) ' + a);
+fun1(a);
+console.log('5) ' + a);
+
+
+        
+        </script>
+    </head>
+</html>
+
+<!--
+1) window       scope1-4.html:8 
+4) window       scope1-4.html:14 
+2)  window window       scope1-4.html:10 
+3)  window fun1         scope1-4.html:12 
+5) window               scope1-4.html:16 
+-->

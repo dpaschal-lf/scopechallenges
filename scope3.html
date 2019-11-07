@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<!--
+    reassigning variable
+-->
+    <head>
+        <script>
+console.log('1) ' + a);
+var a = 'window';
+
+console.log('2) ' + a);
+function fun1(b){
+    var a = 'fun1';
+    console.log('3) ' + a);
+    console.log('4) ' + b);
+}
+console.log('5) ' + a);
+fun1( a );
+a = 'window again'
+console.log('6) ' + a);
+
+
+        
+        </script>
+    </head>
+</html>
+
+<!--
+1) undefined        scope3.html:5 
+2) window           scope3.html:8 
+5) window           scope3.html:14 
+3) fun1             scope3.html:11 
+4) window           scope3.html:12 
+6) window           scope3.html:16 
+
+-->
